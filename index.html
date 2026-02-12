@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Will You Be My Valentine? 💘</title>
+<style>
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #ffccd5;
+}
+
+h1 {
+    margin-top: 100px;
+    font-size: 40px;
+}
+
+button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background-color: white;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="question">Will You Be My Valentine? 💖</h1>
+
+<button id="yesBtn" onclick="yesClicked()">YES 💘</button>
+<button id="noBtn" onclick="noClicked()">No 😢</button>
+
+<script>
+let noCount = 0;
+let yesSize = 1;
+let noSize = 1;
+
+function yesClicked() {
+    document.body.innerHTML = "<h1>YAYYYY 💕 You just made me the happiest girl alive 😭💘</h1>";
+}
+
+function noClicked() {
+    noCount++;
+
+    let question = document.getElementById("question");
+    let yesBtn = document.getElementById("yesBtn");
+    let noBtn = document.getElementById("noBtn");
+
+    // Make Yes bigger and No smaller
+    yesSize += 0.3;
+    noSize -= 0.15;
+
+    yesBtn.style.transform = "scale(" + yesSize + ")";
+    noBtn.style.transform = "scale(" + noSize + ")";
+
+    if (noCount === 2) {
+        question.innerText = "Please say yes 🥺";
+    } 
+    else if (noCount === 3) {
+        question.innerText = "Are you sure?";
+    } 
+    else if (noCount === 4) {
+        question.innerText = "I'll be very sad...";
+    } 
+    else if (noCount === 5) {
+        question.innerText = "Very VERY sad...";
+    } 
+    else if (noCount === 6) {
+        noBtn.style.display = "none";
+        question.innerText = "You have no choice but to say yes 😌";
+    }
+}
+</script>
+
+</body>
+</html>
